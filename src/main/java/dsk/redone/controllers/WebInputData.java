@@ -1,32 +1,43 @@
 package dsk.redone.controllers;
 
+import dsk.redone.repository.DataRepo;
+
 import javax.swing.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import static javax.swing.JOptionPane.QUESTION_MESSAGE;
 
 
-public class WebInputData implements InputDataController{
-   public static void run(){
-       //выбираем валюту
-       //вводим дату
-   }
+public class WebInputData implements InputDataController {
+
+    /**
+     * Ввод даты для определения курсов валют
+     * @return String date
+     */
 
     public String inputDate() {
-        System.out.println("Введите дату для определения курсов валют");
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
+        return  JOptionPane.showInputDialog(
+                null,"Введите дату для определения курсов валют \n" +
+                        "в формате dd/мм/гггг");
     }
-    public String chooseCurrency(){
-//        message – the Object to display title – the String to display in the dialog title bar
-//        messageType – the type of message to be displayed: ERROR_MESSAGE, INFORMATION_MESSAGE,
-//        WARNING_MESSAGE, QUESTION_MESSAGE, or PLAIN_MESSAGE
-//        icon – the Icon image to display
-//        selectionValues – an array of Objects that gives the possible selections
-//        initialSelectionValue – the value used to initialize the input field
 
-        JOptionPane.showInputDialog(null,"Please choose the currency type",
-                QUESTION_MESSAGE,null,);
-                return null;
+    /**
+     * Выбор названия валюты из списка актуальных валют на сайте cbr
+     *
+     * @return String - название валюты
+     */
+    public String chooseCurrency(Object[] curNames) {
+        return (String) JOptionPane.showInputDialog(null, "Please choose the currency type", "Выбор валюты",
+                QUESTION_MESSAGE, null, curNames, 1);
+    }
+
+    /**
+     * Выбор типа вывода данных
+     * @return
+     */
+    @Override
+    public String chooseOutputType() {
+        return null;
     }
 }

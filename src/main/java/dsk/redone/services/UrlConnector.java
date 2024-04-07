@@ -1,4 +1,7 @@
-package dsk.redone.utils;
+package dsk.redone.services;
+
+import dsk.redone.repository.DataRepo;
+import lombok.SneakyThrows;
 
 import java.awt.*;
 import java.io.BufferedReader;
@@ -9,24 +12,11 @@ import java.net.URI;
 import java.net.URL;
 import java.net.URLConnection;
 
-public class Utils {
-    private static String downloadWebPage(String url) throws IOException {
+public class UrlConnector {
 
-        StringBuilder result = new StringBuilder();
-        String line;
+    @SneakyThrows
 
-        URLConnection urlConnection = new URL(url).openConnection();
 
-        try (InputStream is = urlConnection.getInputStream();
-             BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
-
-            while ((line = br.readLine()) != null) {
-                result.append(line);
-            }
-        }
-
-        return result.toString();
-    }
     public static boolean openWebpage(URI uri) {
         Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
         if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
@@ -39,5 +29,4 @@ public class Utils {
         }
         return false;
     }
-
 }

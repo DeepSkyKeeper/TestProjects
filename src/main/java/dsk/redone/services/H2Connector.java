@@ -2,7 +2,6 @@ package dsk.redone.services;
 
 import lombok.SneakyThrows;
 
-import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,6 +11,10 @@ import java.util.Map;
 public class H2Connector {
     Connection connection;
 
+    /**
+     * connect() - opening connection to H2 mem database
+     * @throws SQLException
+     */
     @SneakyThrows
     public void connect() throws SQLException {
         String driver = "org.h2.Driver";
@@ -24,6 +27,10 @@ public class H2Connector {
             System.out.println("Can't able connecting to H2 in-memory database");
     }
 
+    /**
+     * disconnect() - closing connection to H2 database
+     * @throws SQLException
+     */
     public void disconnect() throws SQLException {
         connection.close();
     }
