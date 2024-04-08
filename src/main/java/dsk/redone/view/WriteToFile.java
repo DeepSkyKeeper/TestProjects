@@ -1,8 +1,10 @@
 package dsk.redone.view;
 
-public class WriteToFile implements UserView{
+import java.io.File;
+
+public class WriteToFile implements UserView {
     @Override
     public void dataOut() {
-
+        File file = new File("dataOut.txt");
     }
 }
