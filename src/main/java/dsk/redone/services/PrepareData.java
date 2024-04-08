@@ -4,35 +4,27 @@ import lombok.Getter;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 
 public class PrepareData {
     public PrepareData(String lData) {
         parseData(lData);
-        setCurDate();
-        setPostDate();
-        setPreDate();
+        addDate();
     }
 
 
     private LocalDate targetDate;
     @Getter
-    public String curDate;
-    @Getter
-    public String preDate;
-    @Getter
-    public String postDate;
+    public ArrayList<String> dateList;
 
-    private void setCurDate() {
-        curDate = buildDate(targetDate);
-    }
+    private void addDate() {
+        dateList = new ArrayList<>();
+        dateList.add(buildDate(targetDate));
 
-    private void setPreDate() {
-        preDate = buildDate(targetDate.minusDays(1));
-    }
+        dateList.add(buildDate(targetDate.minusDays(1)));
 
-    private void setPostDate() {
-        postDate = buildDate(targetDate.plusDays(1));
+        dateList.add(buildDate(targetDate.plusDays(1)));
     }
 
     /**

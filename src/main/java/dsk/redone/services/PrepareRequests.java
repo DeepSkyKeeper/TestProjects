@@ -14,9 +14,7 @@ import java.util.List;
  */
 @AllArgsConstructor
 public class PrepareRequests {
-    private final String date;
-    private final String preDate;
-    private final String postDate;
+    private final ArrayList<String> dateList;
     private final String curId;
 
 
@@ -27,9 +25,7 @@ public class PrepareRequests {
      */
     public ArrayList<String> getUrlList() {
         ArrayList<String> urls = new ArrayList<>();
-        urls.add(buildUrl(curId, preDate));
-        urls.add(buildUrl(curId, date));
-        urls.add(buildUrl(curId, postDate));
+        for(String date:dateList) urls.add(buildUrl(curId, date));
         return urls;
     }
 

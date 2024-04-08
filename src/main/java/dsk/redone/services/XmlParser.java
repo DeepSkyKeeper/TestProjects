@@ -28,7 +28,6 @@ public class XmlParser extends DataRepo {
 
     /**
      * Получает документ по указанному адресу
-     *
      * @param curListUrl - url со списком актуальных валют
      */
     private static void getDoc(String url) {

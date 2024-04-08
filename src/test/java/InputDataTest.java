@@ -21,7 +21,8 @@ public class InputDataTest {
 
     @Test
     public void setErTest() {
-        String url = "https://cbr.ru/scripts/XML_dynamic.asp?date_req1=01/03/2024&date_req2=05/03/2024&VAL_NM_RQ=R01235";
+        String date="06/04/2024";
+        String url = "https://cbr.ru/scripts/XML_dynamic.asp?date_req1="+date+"&date_req2="+date+"&VAL_NM_RQ=R01235";
         DataRepo repo = XmlParser.createXmlParser();
          repo.setErList(url);
         for(ExRate er:DataRepo.getErList()){

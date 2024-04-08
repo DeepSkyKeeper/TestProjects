@@ -44,8 +44,7 @@ public class AppController {
         //создаем доп даты
         PrepareData data = new PrepareData(inputController.inputDate());
         //готовим запросы
-        PrepareRequests requests = new PrepareRequests(data.getCurDate(), data.getPreDate(),
-                data.getPostDate(), curId);
+        PrepareRequests requests = new PrepareRequests(data.getDateList(), curId);
         urlList = requests.getUrlList();
         //читаем курсы по датам
         urlList.forEach(repo::setErList);
