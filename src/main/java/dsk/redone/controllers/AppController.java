@@ -37,7 +37,8 @@ public class AppController {
         curId = repo.getIdByCurName(curName);
         //поиск id по названию валюты в репозитории
 
-    
+        //выбираем источник для вывода
+//        inputController.chooseOutputType();
         //ввод даты
         //парсим строку - конвертим в дату
         //создаем доп даты
