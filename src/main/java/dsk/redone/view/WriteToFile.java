@@ -7,4 +7,5 @@ public class WriteToFile implements UserView {
     public void dataOut() {
         File file = new File("dataOut.txt");
     }
+
 }
